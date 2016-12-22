@@ -46,7 +46,6 @@ function factorial2(n) {
 }
 
 
-
 // ------------------------------------------------------------------------
 
 // ### 3. Longest Word
@@ -54,6 +53,29 @@ function factorial2(n) {
 // Write a method that takes in a string. Return the longest word in the string. You may assume that the string contains only letters and spaces. You may use the String `split` method to aid you in your quest.
 // For example: `longest_word('This is an amazing test')` => 'amazing'
 
+// OPTION 1
+function longest_word1(sentence) {
+  var splitted = sentence.split(' ');
+  var longest_word = '';
+  for (var i = 0; i < splitted.length; i++) {
+    if (splitted[i].length > longest_word.length) {
+      longest_word = splitted[i];
+    }
+  }
+  return longest_word;
+}
+
+// OPTION 2
+function longest_word2(sentence) {
+  var splitted = sentence.split(' ');
+  var longest_word = '';
+  splitted.forEach(function(word) {
+    if (word.length > longest_word.length) {
+      longest_word = word;
+    }
+  });
+  return longest_word;
+}
 
 
 // ------------------------------------------------------------------------
