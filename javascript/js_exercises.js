@@ -83,14 +83,38 @@ function longest_word2(sentence) {
 // ### 4. Sum Nums
 
 // Write a method that takes in an integer `num` and returns the sum of all integers between zero and num, up to and including `num`.
-
-// ```javascript
-// function sum_nums(num) {
-
-// }
-// ```
-
 // For example: `sum_nums(6)` => 21
+
+// OPTION 1
+function sum_nums(num) {
+  if (Number.isInteger(num) === false) return undefined;
+  if (num === 0) return 0;
+  while (num > 0) {
+    return num + (sum_nums(num - 1));
+  }
+  while (num < 0) {
+    return num + (sum_nums(num + 1));    
+  }
+}
+
+// OPTION 2
+function sum_nums2(num) {
+  if (Number.isInteger(num) === false) return undefined;
+  var total = 0;
+  if (num > 0) {
+    for(var i = 1; i <= num; i++){
+      total += i;
+    }
+    return total;
+  }
+  if (num < 0) {
+    for(var i = -1; i >= num; i--){
+      total += i;
+    }
+    return total;
+  }
+}
+
 
 // ------------------------------------------------------------------------
 
