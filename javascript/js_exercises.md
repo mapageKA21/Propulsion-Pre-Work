@@ -1,6 +1,7 @@
 // ### 1. Reverse
 
 // Write a method that will take a string as input, and return a new string with the same letters in reverse order.
+// For example: `reverse('abcd')` => 'dcba'
 
 // OPTION 1
 function reverse1(string) {
@@ -16,7 +17,6 @@ function reverse2(string) {
   return string.split('').reverse().join('');
 }
 
-// For example: `reverse('abcd')` => 'dcba'
 
 // ------------------------------------------------------------------------
 
@@ -26,26 +26,35 @@ function reverse2(string) {
 // `n*(n-1)*(n-2)*...*2*1`. Assume n >= 0.
 
 // As a special case, `factorial(0) == 1`.
-
-// ```javascript
-// function factorial(n) {
-
-// }
-// ```
 // For exampe: `factorial(4)` => 24
+
+// OPTION 1
+function factorial1(n) {
+  if (n < 0) return undefined;
+  if (n === 0) return 1;
+  return n*(factorial1(n-1));
+}
+
+// OPTION 2
+function factorial2(n) {
+    if (n < 0) return undefined;
+    var fact = 1;
+    for (var i = n; i > 1; i--) {
+      fact *= i;
+    }
+    return fact;
+}
+
+
 
 // ------------------------------------------------------------------------
 
 // ### 3. Longest Word
 
 // Write a method that takes in a string. Return the longest word in the string. You may assume that the string contains only letters and spaces. You may use the String `split` method to aid you in your quest.
-
-// ```javascript
-// function longest_word(sentence) {
-
-// }
-// ```
 // For example: `longest_word('This is an amazing test')` => 'amazing'
+
+
 
 // ------------------------------------------------------------------------
 
