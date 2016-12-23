@@ -244,20 +244,29 @@ function two_sum1(nums) {
 
 // ------------------------------------------------------------------------
 
-// [0, 2, 4]
 // ### 10. Is Power of Two
 
 // Write a method that takes in a number and returns true if it is a power of 2. Otherwise, return false.
 // You may want to use the `%` modulo operation. `5 % 2` returns the remainder when dividing 5 by 2; therefore, `5 % 2 == 1`. In the case of `6 % 2`, since 2 evenly divides 6 with no remainder, `6 % 2 == 0`.
-
-// ```javascript
-// function is_power_of_two(num) {
-
-// }
-// ```
-
 // For example:
  
 // `is_power_of_two(8)` => true
-
 // `is_power_of_two(24)` => false
+
+// OPTION 1
+function is_power_of_two1(num) {
+  if (num === 2) return true;
+  if (num % 2 === 0) return is_power_of_two1(num/2);
+  if (num % 2 !== 0) return false;
+}
+
+// OPTION 2
+function is_power_of_two2(num) { 
+  while (num > 1) {
+    num /= 2;
+    if (num % 1 !== 0) {
+        return false;
+    }
+  }
+  return true;
+}
