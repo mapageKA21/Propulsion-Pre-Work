@@ -196,18 +196,28 @@ function palindrome2(string) {
 // ### 8. Most Letters
 
 // Write a method that takes a string in and returns true if the letter "z" appears within three letters **after** an "a". You may assume that the string contains only lowercase letters.
-
-// ```javascript
-// function nearby_az(string) {
-
-// }
-// ```
-
-// For example:
-
+// For example
 // `nearby_az('abbbz')` => false
-
 // `nearby_az('abz')` => true
+
+// OPTION 1
+function nearby_az(string) {
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === 'a' && string[i+1] === 'z') return true;
+    if (string[i] === 'a' && string[i+2] === 'z') return true;
+    if (string[i] === 'a' && string[i+3] === 'z') return true;    
+  }
+  return false;
+}
+
+// OPTION 2
+function nearby_az2(string) {
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === 'a' && (string.slice(i, i+4)).includes('z')) return true;  
+  }
+  return false;
+}
+
 
 // ------------------------------------------------------------------------
 
