@@ -121,14 +121,22 @@ function sum_nums2(num) {
 // ### 5. Time Conversion
 
 // Write a method that will take in a number of minutes, and returns a string that formats the number into `hours:minutes`.
-
-// ```javascript
-// function time_conversion(minutes) {
-
-// }
-// ```
-
 // For example: `time_conversion(155)` => '2:35'
+
+// OPTION 1
+function time_conversion1(minutes) {
+  var hours = Math.floor(minutes/60);
+  var minutes = minutes % 60;
+  return hours + ':' + minutes;
+}
+
+// OPTION 2
+function time_conversion2(minutes) {
+  var hours = Math.trunc(minutes/60);
+  var minutes = minutes % 60;
+  return hours + ':' + minutes;
+}
+
 
 // ------------------------------------------------------------------------
 
