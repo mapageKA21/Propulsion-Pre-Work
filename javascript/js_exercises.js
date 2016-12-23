@@ -143,14 +143,25 @@ function time_conversion2(minutes) {
 // ### 6. Count Vowels
 
 // Write a method that takes a string and returns the number of vowels in the string. You may assume that all the letters are lower cased. You can treat "y" as a consonant.
-
-// ```javascript
-// function count_vowels(string) {
-
-// }
-// ```
-
 // For example: `count_vowels('alphabet')` => 3
+
+// OPTION 1
+function count_vowels1(string) {
+  var vowels = 'aeiou';
+  var counter = 0;
+  for (var i = 0; i < string.length; i++) {
+    if (vowels.includes(string[i])) counter ++;
+  }
+  return counter;
+}
+
+// OPTION 2
+function count_vowels2(string) {
+  var counter = string.match(/[aeiou]/g);
+  if (counter === null) return 0;
+  return counter.length;
+}
+
 
 // ------------------------------------------------------------------------
 
