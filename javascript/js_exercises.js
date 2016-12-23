@@ -5,9 +5,9 @@
 
 // OPTION 1
 function reverse1(string) {
-  let result = '';
-  for (let x = string.length-1; x > -1; x--) {
-    result += string[x];
+  var result = '';
+  for (var i = string.length-1; i > -1; i--) {
+    result += string[i];
   }
   return result;
 }
@@ -168,18 +168,28 @@ function count_vowels2(string) {
 // ### 7. Palindrome
 
 // Write a method that takes a string and returns true if it is a palindrome. A palindrome is a string that is the same whether written backward or forward. Assume that there are no spaces; only lowercase letters will be given.
-
-// ```javascript
-// function palindrome(string) {
-
-// }
-// ```
-
 // For example:
-
 // `palindrome('abcd')` => false
-
 // `palindrome('abbba')` => true
+
+// OPTION 1
+function palindrome1(string) {
+  var reversedString = '';
+  for (var i = string.length-1; i > -1; i--) {
+    reversedString += string[i];
+  }
+  if (string !== reversedString) return false;
+  return true;
+}
+
+// OPTION 2
+function palindrome2(string) {
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] !== string.substr(-i-1, 1)) return false;
+  }
+  return true;
+}
+
 
 // ------------------------------------------------------------------------
 
