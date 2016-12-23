@@ -224,23 +224,27 @@ function nearby_az2(string) {
 // ### 9. Two Sum
 
 // Write a method that takes an array of numbers. If a pair of numbers in the array sums to zero, return the positions of those two numbers. If no pair of numbers sums to zero, return `nil`.
-
-// ```javascript
-// function two_sum(nums) {
-
-// }
-// ```
-
 // For example:
 
 // `two_sum([1, 3, -1, 5])` => [[0, 2]]
-
 // `two_sum([1, 3, -1, 5, -3])` => [[0, 2], [1, 4]]
-
 // `two_sum([1, 5, 3, -4])` => nil
+
+function two_sum1(nums) {
+  var results = [];
+  for (var i = 0; i < nums.length; i++) {
+    for (var x = i + 1; x < nums.length; x++) {
+      if (nums[i] + nums[x] === 0) results.push([i,x]);
+    }
+  }
+  if (results.length === 0) return null;
+  return results;
+}
+
 
 // ------------------------------------------------------------------------
 
+// [0, 2, 4]
 // ### 10. Is Power of Two
 
 // Write a method that takes in a number and returns true if it is a power of 2. Otherwise, return false.
