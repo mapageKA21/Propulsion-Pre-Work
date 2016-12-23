@@ -5,6 +5,7 @@
 
 // OPTION 1
 function reverse1(string) {
+  if (typeof string !== 'string') return false;
   var result = '';
   for (var i = string.length-1; i > -1; i--) {
     result += string[i];
@@ -14,6 +15,7 @@ function reverse1(string) {
 
 // OPTION 2 
 function reverse2(string) {
+  if (typeof string !== 'string') return false;
   return string.split('').reverse().join('');
 }
 
@@ -30,6 +32,8 @@ function reverse2(string) {
 
 // OPTION 1
 function factorial1(n) {
+  if (typeof n !== 'number') return false;
+  if (Number.isInteger(n) === false) return undefined;
   if (n < 0) return undefined;
   if (n === 0) return 1;
   return n*(factorial1(n-1));
@@ -37,12 +41,14 @@ function factorial1(n) {
 
 // OPTION 2
 function factorial2(n) {
-    if (n < 0) return undefined;
-    var fact = 1;
-    for (var i = n; i > 1; i--) {
-      fact *= i;
-    }
-    return fact;
+  if (typeof n !== 'number') return false;
+  if (Number.isInteger(n) === false) return undefined;
+  if (n < 0) return undefined;
+  var fact = 1;
+  for (var i = n; i > 1; i--) {
+    fact *= i;
+  }
+  return fact;
 }
 
 
@@ -55,6 +61,7 @@ function factorial2(n) {
 
 // OPTION 1
 function longest_word1(sentence) {
+  if (typeof sentence !== 'string') return false;
   var splitted = sentence.split(' ');
   var longest_word = '';
   for (var i = 0; i < splitted.length; i++) {
@@ -67,6 +74,7 @@ function longest_word1(sentence) {
 
 // OPTION 2
 function longest_word2(sentence) {
+  if (typeof sentence !== 'string') return false;
   var splitted = sentence.split(' ');
   var longest_word = '';
   splitted.forEach(function(word) {
@@ -87,6 +95,7 @@ function longest_word2(sentence) {
 
 // OPTION 1
 function sum_nums(num) {
+  if (typeof num !== 'number') return false;
   if (Number.isInteger(num) === false) return undefined;
   if (num === 0) return 0;
   while (num > 0) {
@@ -99,6 +108,7 @@ function sum_nums(num) {
 
 // OPTION 2
 function sum_nums2(num) {
+  if (typeof num !== 'number') return false;
   if (Number.isInteger(num) === false) return undefined;
   var total = 0;
   if (num > 0) {
@@ -125,6 +135,7 @@ function sum_nums2(num) {
 
 // OPTION 1
 function time_conversion1(minutes) {
+  if (typeof minutes !== 'number') return false;
   var hours = Math.floor(minutes/60);
   var minutes = minutes % 60;
   return hours + ':' + minutes;
@@ -132,6 +143,7 @@ function time_conversion1(minutes) {
 
 // OPTION 2
 function time_conversion2(minutes) {
+  if (typeof minutes !== 'number') return false;
   var hours = Math.trunc(minutes/60);
   var minutes = minutes % 60;
   return hours + ':' + minutes;
@@ -147,6 +159,7 @@ function time_conversion2(minutes) {
 
 // OPTION 1
 function count_vowels1(string) {
+  if (typeof string !== 'string') return false;
   var vowels = 'aeiou';
   var counter = 0;
   for (var i = 0; i < string.length; i++) {
@@ -157,6 +170,7 @@ function count_vowels1(string) {
 
 // OPTION 2
 function count_vowels2(string) {
+  if (typeof string !== 'string') return false;
   var counter = string.match(/[aeiou]/g);
   if (counter === null) return 0;
   return counter.length;
@@ -174,6 +188,7 @@ function count_vowels2(string) {
 
 // OPTION 1
 function palindrome1(string) {
+  if (typeof string !== 'string') return false;
   var reversedString = '';
   for (var i = string.length-1; i > -1; i--) {
     reversedString += string[i];
@@ -184,6 +199,7 @@ function palindrome1(string) {
 
 // OPTION 2
 function palindrome2(string) {
+  if (typeof string !== 'string') return false;
   for (var i = 0; i < string.length; i++) {
     if (string[i] !== string.substr(-i-1, 1)) return false;
   }
@@ -202,6 +218,7 @@ function palindrome2(string) {
 
 // OPTION 1
 function nearby_az(string) {
+  if (typeof string !== 'string') return false;
   for (var i = 0; i < string.length; i++) {
     if (string[i] === 'a' && string[i+1] === 'z') return true;
     if (string[i] === 'a' && string[i+2] === 'z') return true;
@@ -212,6 +229,7 @@ function nearby_az(string) {
 
 // OPTION 2
 function nearby_az2(string) {
+  if (typeof string !== 'string') return false;
   for (var i = 0; i < string.length; i++) {
     if (string[i] === 'a' && (string.slice(i, i+4)).includes('z')) return true;  
   }
@@ -230,7 +248,8 @@ function nearby_az2(string) {
 // `two_sum([1, 3, -1, 5, -3])` => [[0, 2], [1, 4]]
 // `two_sum([1, 5, 3, -4])` => nil
 
-function two_sum1(nums) {
+function two_sum(nums) {
+  if (!Array.isArray(nums)) return false;
   var results = [];
   for (var i = 0; i < nums.length; i++) {
     for (var x = i + 1; x < nums.length; x++) {
@@ -255,6 +274,7 @@ function two_sum1(nums) {
 
 // OPTION 1
 function is_power_of_two1(num) {
+  if (typeof num !== 'number') return false;
   if (num === 2) return true;
   if (num % 2 === 0) return is_power_of_two1(num/2);
   if (num % 2 !== 0) return false;
@@ -262,6 +282,7 @@ function is_power_of_two1(num) {
 
 // OPTION 2
 function is_power_of_two2(num) { 
+  if (typeof num !== 'number') return false;
   while (num > 1) {
     num /= 2;
     if (num % 1 !== 0) {
