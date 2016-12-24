@@ -29,13 +29,13 @@ var player = new Player();
 
 // Create the `add` method on the `Player` class. Remember to use the `prototype`. `add` will expect as a parameter a string and then we need to store it.
 
-Player.protoype.add = function(track) {
+Player.prototype.add = function(track) {
   this.tracks.push(track);
 }
 
 // `play` method will print into the terminal the current track. For now the first track that we have stored.
 
-Player.protoype.play = function() {
+Player.prototype.play = function() {
   console.log(`Playing: ${this.tracks[this.current].title} by ${this.tracks[this.current].artist}`);
 }
 
@@ -55,14 +55,14 @@ Player.protoype.play = function() {
 
 // Implement `next` and `previous` methods that will move the current track accordingly.
 
-Player.protoype.next = function() {
+Player.prototype.next = function() {
   if (this.current === this.tracks.length - 1) this.current = 0;
-  this.current + 1;
+  else (this.current ++);
 }
 
-Player.protoype.previous = function() {
+Player.prototype.previous = function() {
   if (this.current === 0) this.current = this.tracks.length - 1;
-  this.current - 1;
+  else (this.current --);
 }
 
 // ```javascript
