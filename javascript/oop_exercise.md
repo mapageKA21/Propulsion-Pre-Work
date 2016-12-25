@@ -19,6 +19,7 @@
 function Player() {
   this.tracks = [];
   this.current = 0;
+  this.interval;
 }
 
 var player = new Player();
