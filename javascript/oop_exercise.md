@@ -101,6 +101,8 @@ function Track(artist, title, album) {
 // // ...
 var driveTrack = new Track('Incubus', 'Drive', 'Make Yourself');
 var laBambaTrack = new Track('Ritchie Valens', 'La Bamba', 'La Bamba');
+var direStraits = new Track('Dire Straits', 'Money for nothing', 'Alchemy');
+var queen = new Track('Queen', 'We are the champions', 'Greatest hits');
 
 // // instead of adding a string, we are actually adding a whole object
 // player.add(driveTrack);
@@ -122,9 +124,35 @@ var laBambaTrack = new Track('Ritchie Valens', 'La Bamba', 'La Bamba');
 // Some bonus steps that might be cool to try:
 
 // - Move the responsibility to print the info of the track to the track itself. Create `track.play()` method.
+Track.prototype.play = function (track) {
+  console.log(`Playing: ${this.title} by ${this.artist}`);
+}
 // - Be able to select a specific track directly.
+Player.prototype.select = function(track) {
+  this.current = this.tracks.indexOf(track);
+}
 // - Create a method on the player that will print all the stored tracks and their information.
+Player.prototype.playAll = function() {
+  this.tracks.forEach(function(track) {
+    console.log(`${track.title} by ${track.artist} from ${track.album}.`);
+  });
+}
 // - Change the `play` method. Now it should play one track every 2 seconds, until it is finished with all the tracks.
 //   - *Tip: use `setInterval`*
+Player.prototype.playEvery2secs = function() {
+  var that = this;
+  that.interval = setInterval(function() {
+    console.log(`Playing: ${that.tracks[that.current].title} by ${that.tracks[that.current].artist}`);
+    if (that.current < that.tracks.length - 1) that.current ++;
+    else clearInterval(that.interval);
+  }, 1500);
+}
 // - Introduce a `stop` method that will stop the `play` method, preventing it from getting to the last track.
 //   - *Tip: use `setTimeout` to call `stop` after some time.*
+Player.prototype.stop = function() {
+  var that = this;
+  setTimeout(function() {
+    console.log(`stopped`);
+    clearInterval(that.interval);
+  }, 5000);
+}
