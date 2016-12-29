@@ -1,6 +1,6 @@
 # Full Stack Web Development Pre-Work
 
-Great! You've been accepted to start the Full Stack Web Development bootcamp. Congratulations! No time to sit back and relax though: the fun is just about to begin. We want you to get ready for the bootcamp, which means there is some work for you to do before the start of the Full Stack Web development bootcamp.
+Great! You've been accepted to start the Full Stack Web Development bootcamp.   Congratulations! No time to sit back and relax though: the fun is just about to begin. We want you to get ready for the bootcamp, which means there is some work for you to do before the start of the Full Stack Web development bootcamp.
 
 Feel free to contact us if you have any questions anytime during the pre-work. Please do so by email to <learn@propulsionacademy.com> or reach out to our team on Slack.
 
