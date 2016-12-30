@@ -9,8 +9,12 @@ function fibonnacci1(num) {
   return fibonn[num];
 }
 
+console.log(fibonnacci1(15));
+
 // opt 2: recursive
 function fibonnacci2(num) {
   if (num <= 1) return num;
   return fibonnacci2(num-2) + fibonnacci2(num-1);
 }
+
+console.log(fibonnacci2(11));
