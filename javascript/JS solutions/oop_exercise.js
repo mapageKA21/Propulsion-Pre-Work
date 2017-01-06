@@ -110,10 +110,17 @@ Track.prototype.play = function (track) {
   console.log(`Playing: ${this.title} by ${this.artist}`);
 }
 
-// - Be able to select a specific track directly.
-Player.prototype.select = function(track) {
+// - Be able to select a specific track directly (passing a track as argument)
+Player.prototype.select1 = function(track) {
   this.current = this.tracks.indexOf(track);
 }
+
+// - Be able to select a specific track directly (passing an index as argument)
+// - This step was a little bit unclear:
+Player.prototype.select2 = function (num) {
+    if (num < 1 || num > this.tracks.length) return;
+    this.current = num;
+};
 
 // - Create a method on the player that will print all the stored tracks and their information.
 Player.prototype.playAll = function() {
@@ -126,6 +133,7 @@ Player.prototype.playAll = function() {
 //   - *Tip: use `setInterval`*
 Player.prototype.playEvery2secs = function() {
   var that = this;
+  
   that.interval = setInterval(function() {
     console.log(`Playing: ${that.tracks[that.current].title} by ${that.tracks[that.current].artist}`);
     if (that.current < that.tracks.length - 1) that.current ++;

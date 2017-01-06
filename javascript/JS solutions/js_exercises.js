@@ -213,13 +213,14 @@ For example
 function nearby_az(string) {
   if (typeof string !== 'string') return false;
   for (var i = 0; i < string.length; i++) {
-    if (string[i] === 'a' && string[i+1] === 'z') return true;
-    if (string[i] === 'a' && string[i+2] === 'z') return true;
-    if (string[i] === 'a' && string[i+3] === 'z') return true;    
+    if (string[i] === 'a' && (string[i+1] === 'z' || 
+                              string[i+2] === 'z' ||
+                              string[i+3] === 'z')) 
+    return true;
   }
   return false;
 }
-
+console.log(nearby_az('abbbz'));
 // OPTION 2
 function nearby_az2(string) {
   if (typeof string !== 'string') return false;
@@ -247,9 +248,11 @@ function two_sum(nums) {
       if (nums[i] + nums[x] === 0) results.push([i,x]);
     }
   }
-  if (results.length === 0) return null;
+  if (!results.length) return null;
   return results;
 }
+
+console.log('rrrrr',two_sum([-7,7,-6,3,9,9]));
 
 /*
 ------------------------------------------------------------------------
@@ -281,3 +284,7 @@ function is_power_of_two2(num) {
   }
   return true;
 }
+
+console.log(is_power_of_two1(2));
+
+// console.log(power(5,2));
